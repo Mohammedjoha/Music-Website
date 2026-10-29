@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Music Website</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        iframe {
+            width: 560px;
+            max-width: 100%;
+            height: 315px;
+            border: none;
+        }
+
+        #track {
+            width: 300px;
+            height: 60px;
+            background-color: white;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #square {
+            width: 50px;
+            height: 50px;
+            background-color: purple;
+            position: absolute;
+            top: 5px;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Music Website</h1>
+    <p>Enjoy this song: Happy by Pharrell Williams!</p>
+
+    <iframe
+        src="https://www.youtube.com/embed/ZbZSe6N_BXs"
+        title="Pharrell Williams - Happy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="encrypted-media; fullscreen"
+        allowfullscreen>
+    </iframe>
+
+    <p>
+        <a href="https://www.youtube.com/watch?v=ZbZSe6N_BXs"
+           target="_blank" rel="noopener">
+            Watch on YouTube
+        </a>
+    </p>
+
+    <h2>Moving Square</h2>
+    <button onclick="moveSquare()">Start Animation</button>
+
+    <div id="track">
+        <div id="square"></div>
+    </div>
+
+    <script>
+        let animation;
+
+        function moveSquare() {
+            clearInterval(animation);
+
+            const square = document.getElementById("square");
+            let position = 0;
+            square.style.left = "0px";
+
+            animation = setInterval(function () {
+                if (position >= 250) {
+                    clearInterval(animation);
+                } else {
+                    position += 2;
+                    square.style.left = position + "px";
+                }
+            }, 20);
+        }
+    </script>
+</body>
+</html>
